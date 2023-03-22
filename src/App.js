@@ -1,34 +1,79 @@
 /* eslint-disable no-unused-vars */
 import logo from './logo.svg';
 import './App.css';
-const number = 4444;
-const person = {name: "sharmin", job: "jalim", production: "joha"}
-const styleHere = {
-  backgroundColor: "red",
+const murgi = {
+  color: 'red',
 }
 
+
+
+// main app()
+//  i dont know how to add style in components
 function App() {
+  const skills = ["html", "css", "react", "javascript"]
+
+
   return (
     <div className="App">
-      <div className='chehara'>
-        {/* <p>Name: {34577 + number}</p>
-        <p>{person.name}</p>
-        <p style={styleHere}>vallagena kisu</p>
-        <p>ghum ase onek</p>
-        <p style={{backgroundColor: "blue"}}>Sharmin jemon temon jibon e pak</p>
-        <h1>I dont feel good right now</h1> */}
 
-        <Matha> </Matha>
+      <div className='container'>
 
+        <header className="header">
+          <HeaderWeb></HeaderWeb>
+        </header>
+
+
+        <main className="main">
+          <aside className="sidebar">
+            <h2>My Skillset</h2>
+
+            {
+              skills.map(skill => <Sidebar name={skill}  > </Sidebar>)
+            }
+
+
+          </aside>
+        </main>
+
+
+        {/* <span style={{color: 'red',}}>kfeh</span> */}
       </div>
     </div>
   );
 }
 
-function Matha(){
+
+
+
+
+
+
+
+
+
+
+function HeaderWeb(props) {
+  console.log(props);
   return (
-   <div> <h2>Only garbage is real</h2>
-   <h1>Garbage felun matha clear krun</h1></div>
+    <div>
+      <h1> Hello, I am Samia Shahrin</h1>
+      <h3>Professional Web Developer</h3>
+      <img src="./logo.svg" alt="" />
+
+    </div>
+  )
+}
+
+function Sidebar(props) {
+  console.log(props);
+
+  return (
+    <div>
+      <ul>
+        <li> {props.name}  </li>
+
+      </ul>
+    </div>
   )
 }
 
