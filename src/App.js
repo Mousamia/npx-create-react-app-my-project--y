@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 const murgi = {
   color: 'red',
 }
@@ -33,6 +34,10 @@ function App() {
 
 
           </aside>
+
+          <div className='right-side-bar'>
+            <Counter></Counter>
+          </div>
         </main>
 
 
@@ -44,16 +49,8 @@ function App() {
 
 
 
-
-
-
-
-
-
-
-
 function HeaderWeb(props) {
-  console.log(props);
+  
   return (
     <div>
       <h1> Hello, I am Samia Shahrin</h1>
@@ -76,6 +73,34 @@ function Sidebar(props) {
     </div>
   )
 }
+
+function Counter(){
+  const [count, setCount] = useState(13);
+  // console.log(count);
+  // console.log(setCount);
+
+  const increaseCount = () => {
+    const updateCount = count + 1;
+    setCount(updateCount);
+    console.log(updateCount);
+  }
+
+  // // short form
+
+  // const increaseCount = () => console.log(setCount(count+1));
+  // console.log(setCount);
+  
+
+  return(
+    <div className='counter'>
+      <h1>Count: </h1>
+      <button className="increase" onClick={increaseCount}>
+        increase
+      </button>
+    </div>
+  )
+}
+
 
 
 

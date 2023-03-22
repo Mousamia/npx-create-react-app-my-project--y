@@ -21,3 +21,29 @@
  
 }
 
+.right-side-bar{
+  grid-column-end: span 8;
+  background-color: rgb(224, 208, 208);
+  /* for centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter{
+  background-color: black;
+  color: aliceblue;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.increase{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+
+
+
+}
