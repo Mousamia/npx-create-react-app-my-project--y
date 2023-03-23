@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const murgi = {
   color: 'red',
 }
-
-
 
 // main app()
 //  i dont know how to add style in components
@@ -40,6 +38,11 @@ function App() {
           </div>
         </main>
 
+        <section>
+
+          <Friends></Friends>
+        </section>
+
 
         {/* <span style={{color: 'red',}}>kfeh</span> */}
       </div>
@@ -48,9 +51,8 @@ function App() {
 }
 
 
-
 function HeaderWeb(props) {
-  
+
   return (
     <div>
       <h1> Hello, I am Samia Shahrin</h1>
@@ -62,7 +64,7 @@ function HeaderWeb(props) {
 }
 
 function Sidebar(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
     <div>
@@ -74,7 +76,7 @@ function Sidebar(props) {
   )
 }
 
-function Counter(){
+function Counter() {
   const [count, setCount] = useState(13);
   // console.log(count);
   // console.log(setCount);
@@ -89,14 +91,39 @@ function Counter(){
 
   // const increaseCount = () => console.log(setCount(count+1));
   // console.log(setCount);
-  
 
-  return(
+
+  return (
     <div className='counter'>
       <h1>Count: </h1>
       <button className="increase" onClick={increaseCount}>
         increase
       </button>
+    </div>
+  )
+}
+
+
+function Friends(props) {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }
+    , []);
+  console.log(setUsers);
+
+
+
+  return (
+    <div className='friends'>
+     
+      {
+        users.map(user => <Friends name={user.name}></Friends>)
+      }
+      <p> {props.name} </p>
+      <p>Email: {props.email} </p>
     </div>
   )
 }

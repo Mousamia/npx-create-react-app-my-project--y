@@ -43,7 +43,14 @@
   align-items: center;
   padding: 20px;
   border-radius: 5px;
+}
 
+.friends{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  
+}
 
-
+.friends > p{
+  grid-column-end: span 2;
 }
